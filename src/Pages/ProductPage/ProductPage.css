@@ -1,0 +1,26 @@
+
+
+@import url('ProductPageRes.css');
+
+.products-page {
+    position: relative;
+    display: flex;
+    gap: 8%;
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    padding-bottom: 90px;
+    
+}
+.display-off {
+    display: none;
+}
+
+.transparent-div {
+    display: block;
+    position: absolute;
+    background: #00000047;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+}

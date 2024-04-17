@@ -1,0 +1,88 @@
+.image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 610px; /* Fixed height for the image container */
+    z-index: -2; /* Ensure the image container is behind other content */
+  }
+  
+  .home-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Ensure the image covers the container */
+    position: absolute;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+     /* Ensure the overlay is on top of the image */
+  }
+
+  .home-text {
+    position: absolute;
+    top: 220px;
+    left: 50px;
+    z-index: 5;
+    padding: 10px;
+    font-size: 20px;
+    color: #e3e3e3;
+    width: 390px;
+   
+}
+
+.price,
+.collection,
+.offer {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #ffffff; /* Red color for price */
+}
+
+.collection {
+    font-weight: bold;
+    font-size: 34px;
+
+}
+
+.offer {
+  font-size: 25px;
+}
+
+.shop-button {
+  background-color: rgb(227, 145, 96); /* Blue background color */
+  color: #ffffff; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.shop-button:hover {
+  background-color: rgb(223, 125, 69); /* Darker blue on hover */
+}
+
+@media (max-width: 590px){
+    .home-text {
+        left: 25px;
+        width: 280px;
+    }
+    .collection {
+        font-size: 25px;
+    }
+    .offer {
+        font-size: 18px;
+    }
+    .price {
+        font-size: 13px;
+    }
+
+}

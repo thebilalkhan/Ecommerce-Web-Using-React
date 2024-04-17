@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+.productContainer {
+    width: 100%;
+    background-color: rgba(240, 243, 245, 0.74);
+   
+}
+
+.cat-sortContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px 0 10px;
+
+}
+
+
+
+#sort {
+    padding: 4px;
+    height: 35px;
+    font-size: 15px;
+
+}
+
+@media (max-width: 620px) {
+    .cat-sortContainer {
+        flex-direction: column;
+        align-items: start;
+        margin-top: 12px;
+    }
+}
+
+
+
+    .Allproducts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        width: 100%;
+        /* margin-top: 55px; */
+        grid-column-gap: 50px;
+        grid-row-gap: 40px;
+        padding-right: 70px;
+    }
+
+    .cartBtn {
+        background: #0861d3;
+        color: white;
+        border: none;
+        padding: 10px;
+        margin: 10px 0 0 35px;
+        cursor: pointer;
+    }
+
+    .cartBtn:hover {
+        background: #3088fa;
+
+    }
+
+    @media (max-width: 1000px) {
+        .Allproducts {
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        }
+    }
+
+    .productItem {
+
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .productItem img {
+        width: 100%;
+        border-radius: 5px;
+        /* margin-bottom: 0px; */
+        height: 180px;
+        cursor: pointer;
+        transition: transform 0.3s ease
+    }
+
+    .productItem img:hover {
+        transform: scale(1.1); 
+    }
+
+
+   
+
+    .productItem div {
+        margin-bottom: 5px;
+    }
+
+    .productItem .img-container {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .catagory {
+        margin-left: 40px;
+        margin-top: 20px;
+        color: gray;
+
+    }
+
+    .name {
+        margin-left: 40px;
+        font-weight: 650;
+        font-size: 20px;
+
+    }
+
+    .product-price {
+        margin-left: 40px;
+        color: #2cb4df;
+        font-size: 26px;
+    }
+
+    .discount {
+        margin-left: 40px;
+        font-size: 17px;
+    }
+
+    .discount span {
+        font-weight: 500px;
+    }
+
+    /* 
+.catagory-show {
+    grid-area: catagory;
+    margin-left: 40px;
+    margin-top: 20px;
+    color: rgb(168, 32, 32);
+} */

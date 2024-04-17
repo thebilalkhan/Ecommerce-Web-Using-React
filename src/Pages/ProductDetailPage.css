@@ -1,0 +1,146 @@
+/* ProductDetailPage.css */
+
+  /* products detail parent container */
+
+.product-detail-parent {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 50px;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.product-img-div,.product-img-div img {
+    width: 615px;
+    height: 400px;
+    cursor: pointer;
+}
+
+.products-related-img-div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+.products-related-img-div  .images {
+    
+  width: 150px;
+  height: 100px;
+ cursor: pointer;
+
+}
+
+
+
+.products-related-img-div  .images:hover{
+    
+     border:  1px solid black;
+  
+  }
+
+  .images img {
+    width: 150px;
+    height: 100px;
+  
+  }
+
+  .addToCart {
+    font-size: 17px;
+    background: #0861d3;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    margin: 18px 0 0 0px;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-detail-parent {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .product-info {
+        margin-right: 0;
+    }
+
+    .images {
+        width: 100px;
+        height: 70px;
+    }
+
+    .product-description p {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ /* product detail container */
+.product-detail-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .product-img-container{
+    margin-top: 55px;
+  } 
+  .product-info {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .product-description {
+    flex: 2;
+  }
+  
+  .product-info h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    font-size: 25px;
+    color: #0078d1;
+
+  }
+  
+  .discounted-price {
+    font-size: 15px;
+    color: #464646;
+  }
+  
+  .brand, .category, .stock {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+  
+  .product-description h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .product-description p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  

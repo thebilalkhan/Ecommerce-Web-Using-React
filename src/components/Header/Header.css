@@ -1,0 +1,164 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0 0 0);
+  padding: 0 50px 0 50px;
+  height: 60px;
+}
+
+.logo {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.search-box {
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box input {
+    width: 70%;
+    height: 50px;
+    border-radius: 3px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.products, .login {
+  font-size: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.cart {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.cart-div {
+  position: relative;
+}
+
+.cart-div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  width: 19px;
+  background: red;
+  border-radius: 100%;
+  color: white;
+  font-size: 14px;
+
+}
+
+/* hambarger css  */
+
+.hamburger {
+    display: none; /* Hide by default */
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+ 
+  
+  /* Media query for responsive behavior */
+  
+
+@media (max-width: 786px) {
+    .search-box,
+    .login,
+    .products,
+    .cart{
+      display: none; /* Hide search box, login, and products */
+    }
+
+    .cart-div span {
+      display: none ;
+    }
+    
+  
+    .hamburger {
+      display: block; /* Show when the screen is less than 786px wide */
+    }
+}
+
+
+/* css after clicking on hamberger */
+
+.Dropdown-Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(227 227 227 / 80%);
+  color: rgb(0, 0, 0);
+  padding: 0 30px 0 30px;
+  height: 250px;
+  overflow-x: hidden; 
+  transition: all 0.5s ease; 
+
+
+}
+
+
+
+.Dropdown-search-box {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Dropdown-products, .Dropdown-login {
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.Dropdown-cart {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 25px;
+
+}
+
+
+.cartItem {
+  display: flex !important;
+}
+
+.hamburger-hide {
+  display: none;
+}
+
+.cross {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  font-size: 20px;
+}
+
