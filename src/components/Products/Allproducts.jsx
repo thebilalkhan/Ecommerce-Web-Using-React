@@ -12,9 +12,11 @@ function Allproducts({ ClickOnCat }) {
     const [sortBy, setSortBy] = useState('');
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => { 
+            
             try {
                 const data = await fetchProducts();
+                
                 setProducts(data.products);
                 console.log(Products);
                 localStorage.setItem('products', JSON.stringify(data.products));
@@ -66,9 +68,9 @@ function Allproducts({ ClickOnCat }) {
                             <div className='product-price'>${item.price}</div>
                             <div className='discount'><s>${item.price + 50}</s> <span>{Math.round(item.discountPercentage)}%</span></div>
                             <button className='cartBtn' onClick={() => {
-                                let productWithIndex = item;
+                                let singleItem= item;
                                 
-                                addToCart(productWithIndex);
+                                addToCart(singleItem);
                                 // console.log(index)
                             }}> ADD TO CARD</button>
                         </div>

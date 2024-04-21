@@ -1,12 +1,22 @@
-// CartContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 let CartContext = createContext();
 
 let CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [productCart, setProductCart] = useState([]);
-  const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [productCart, setProductCart] = useState(() => {
+    const storedCart = localStorage.getItem('cartProduct');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+  const [totalCartPrice, setTotalCartPrice] = useState(() => {
+    // Calculate total price from the items in productCart
+    return productCart.reduce((total, item) => total + item.price * item.quantity, 0);
+  });
+
+  // Save cart items to local storage whenever productCart changes
+  useEffect(() => {
+    localStorage.setItem('cartProduct', JSON.stringify(productCart));
+  }, [productCart]);
 
   const updateTotalCartPrice = (priceChange) => {
     setTotalCartPrice((prevTotal) => prevTotal + priceChange);
@@ -26,7 +36,18 @@ let CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ isCartOpen, setIsCartOpen, productCart, setProductCart, totalCartPrice, setTotalCartPrice, updateTotalCartPrice, addToCart }}>
+    <CartContext.Provider
+      value={{
+        isCartOpen,
+        setIsCartOpen,
+        productCart,
+        setProductCart,
+        totalCartPrice,
+        setTotalCartPrice,
+        updateTotalCartPrice,
+        addToCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

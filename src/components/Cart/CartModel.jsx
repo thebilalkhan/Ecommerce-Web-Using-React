@@ -1,16 +1,18 @@
 // CartModel.js
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import './CartModel.css';
 import deletePng from './../../assets/delete.png'
 import emptyCart from './../../assets/empty-cart.png'
 
 function CartModel() {
-  const { isCartOpen, setIsCartOpen, productCart, setProductCart, totalCartPrice } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, productCart, setProductCart, totalCartPrice, setTotalCartPrice } = useContext(CartContext);
+ 
+
 
   const addedItems = () => {
     return productCart.map((item) => (
-      <ProductToAdd key={item.id} item={item} />
+      <ProductToAdd key={item.id} item={item} /> 
     ));
   };
 
@@ -28,17 +30,15 @@ function CartModel() {
   );
 }
 
-export default CartModel;
-
 const ProductToAdd = ({ item }) => {
-  const { productCart, setProductCart, updateTotalCartPrice } = useContext(CartContext);
+  const { productCart, setProductCart, totalCartPrice, setTotalCartPrice } = useContext(CartContext);
 
   const increaseQuantity = () => {
     const updatedCart = [...productCart];
     const index = updatedCart.findIndex((cartItem) => cartItem.id === item.id);
     updatedCart[index].quantity++;
     setProductCart(updatedCart);
-    updateTotalCartPrice(item.price);
+    setTotalCartPrice(totalCartPrice + item.price);
   };
 
   const decreaseQuantity = () => {
@@ -47,12 +47,13 @@ const ProductToAdd = ({ item }) => {
     if (updatedCart[index].quantity > 1) {
       updatedCart[index].quantity--;
       setProductCart(updatedCart);
-      updateTotalCartPrice(-item.price);
+      setTotalCartPrice(totalCartPrice - item.price);
     }
   };
 
-  const deleteProduct = () => {
+  const deleteProduct = (item) => {
     setProductCart(productCart.filter((cartItem) => cartItem.id !== item.id));
+    setTotalCartPrice(totalCartPrice - (item.price * item.quantity)); 
   };
 
   return (
@@ -69,8 +70,10 @@ const ProductToAdd = ({ item }) => {
       </div>
       <div className="total-price">
         <div style={{ fontWeight: '500', fontSize: '18px' }}>${item.price * item.quantity}</div>
-        <div className='deleteProduct'><img onClick={deleteProduct} src={deletePng} alt="" /></div>
+        <div className='deleteProduct'><img onClick={ ()=> deleteProduct(item)  } src={deletePng} alt="" /></div>
       </div>
     </div>
   );
 };
+
+export default CartModel;

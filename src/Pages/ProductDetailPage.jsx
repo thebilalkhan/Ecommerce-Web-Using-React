@@ -6,10 +6,12 @@ import { useLocation } from 'react-router-dom'
 import { ProductContext } from '../contexts/ProductContext'
 import { useEffect } from 'react'
 import Products from './ProductPage/ProductPage'
+import { CartContext } from '../contexts/CartContext'
 
 function ProductDetailPage() {
 
   const { Products, setProducts } = useContext(ProductContext);
+  const {addToCart} = useContext(CartContext);
   const [productData, setProductData] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
 
@@ -85,7 +87,7 @@ function ProductDetailPage() {
                 <h3>About the product</h3>
                 <p> {productData.description}An apple mobile which is nothing like apple It is important to take care of the patient, to be followed by the patient, but it will happen at such a time that there is a lot of work and pain. For to come to the smallest detail, no one should practice any kind of work unless he derives some benefit from it. Do not be angry with the pain in the reprimand in the pleasure he wants to be a hair from the pain in the hope that there is no breeding. Unless they are blinded by lust, they do not come forth; they are in fault who abandon their duties and soften their hearts, that is, their labors.</p>
               </div>
-              <button className='addToCart'>Add To Cart</button>
+              <button className='addToCart' onClick={()=> addToCart(productData) } >Add To Cart</button>
             </>
 
           </div>
