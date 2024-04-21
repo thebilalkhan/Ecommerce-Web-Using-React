@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 let CartContext = createContext();
 
@@ -26,12 +27,15 @@ let CartProvider = ({ children }) => {
     const index = productCart.findIndex((cartItem) => cartItem.id === item.id);
     if (index === -1) {
       setProductCart([...productCart, { ...item, quantity: 1 }]);
-      updateTotalCartPrice(item.price);
+      updateTotalCartPrice(item.price);  
+    toast.success('Product added to cart', {autoClose : 2000});
+
     } else {
       const updatedCart = [...productCart];
       updatedCart[index].quantity++;
       setProductCart(updatedCart);
       updateTotalCartPrice(item.price);
+      toast.success('Product added to cart');   
     }
   };
 

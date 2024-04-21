@@ -4,6 +4,7 @@ import { CartContext } from '../../contexts/CartContext';
 import './CartModel.css';
 import deletePng from './../../assets/delete.png'
 import emptyCart from './../../assets/empty-cart.png'
+import { toast } from 'react-toastify';
 
 function CartModel() {
   const { isCartOpen, setIsCartOpen, productCart, setProductCart, totalCartPrice, setTotalCartPrice } = useContext(CartContext);
@@ -39,6 +40,8 @@ const ProductToAdd = ({ item }) => {
     updatedCart[index].quantity++;
     setProductCart(updatedCart);
     setTotalCartPrice(totalCartPrice + item.price);
+    toast.success('Item Quantity Increased Successfully');
+
   };
 
   const decreaseQuantity = () => {
@@ -48,12 +51,14 @@ const ProductToAdd = ({ item }) => {
       updatedCart[index].quantity--;
       setProductCart(updatedCart);
       setTotalCartPrice(totalCartPrice - item.price);
+      
     }
   };
 
   const deleteProduct = (item) => {
     setProductCart(productCart.filter((cartItem) => cartItem.id !== item.id));
     setTotalCartPrice(totalCartPrice - (item.price * item.quantity)); 
+    toast.success('Item Deleted Successfully');
   };
 
   return (
